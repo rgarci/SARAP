@@ -15,28 +15,8 @@ public class Autobus implements Serializable{
         this.noAsientos = noAsientos;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public void setNoAsientos(int noAsientos) {
-        this.noAsientos = noAsientos;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-
     public String getMarca() {
         return marca;
-    }
-
-    public int getNoAsientos() {
-        return noAsientos;
     }
 
     public String getModelo() {
@@ -45,5 +25,10 @@ public class Autobus implements Serializable{
 
     public String getPlaca() {
         return placa;
+    }
+
+    @Override
+    public String toString() {
+        return "Marca: " + getMarca() + "\n\t Modelo: " + getModelo() + "\n\t Placa: " + getPlaca();
     }
 }

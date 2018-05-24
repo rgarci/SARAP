@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 public class OpcionesReservaciones extends JFrame{
     private JButton btnSiguiente;
@@ -13,7 +14,7 @@ public class OpcionesReservaciones extends JFrame{
     private JPanel panel1;
     private Con con;
 
-    public OpcionesReservaciones(Horario[] horarios) {
+    public OpcionesReservaciones(Horario[] horarios, final Date fecha) {
         con = Con.getSingletonInstance();
         this.setLocationRelativeTo(null);
         listOpciones.setListData(horarios);
@@ -30,7 +31,7 @@ public class OpcionesReservaciones extends JFrame{
                             mensaje += horario.getRuta().getRutasIntermedias().get(i) + "\n";
                         }
                         JOptionPane.showMessageDialog(null, mensaje);
-                        if (con.reservar(horario)){
+                        if (con.reservar(horario, fecha)){
                             JOptionPane.showMessageDialog(null, "El registro se realizó correctamente");
                             con.terminarOpcionesReservaciones();
                         }else {

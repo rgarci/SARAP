@@ -1,19 +1,13 @@
 package Con;
 
 import Mod.*;
+import Vis.*;
 import com.github.javafaker.Faker;
 
-import java.io.EOFException;
-import java.io.File;
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import Vis.*;
-
 import javax.swing.*;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class Con {
     private static Con con;
@@ -24,8 +18,15 @@ public class Con {
     private Reservaciones reservacionesF;
     private Cancelaciones cancelacionesF;
     private ConfirmCancelaciones confCancelacionesF;
-    private Faker faker = new Faker(new Locale("es", "MX"));
+    private  Faker faker = new Faker(new Locale("es", "MX"));
     private OpcionesReservaciones opcionesReservacionesF;
+    private boolean admin = false;
+    private Administrador administradorF;
+    private MostrarAutobuses mostrarAutobusesF;
+    private AgregarAutobus agregarAutobusF;
+    private AgregarHorario agregarHorarioF;
+
+    private String[] ciudades;
     private Con() {
     }
 
@@ -70,9 +71,8 @@ public class Con {
         });
     }
 
-    public void abrirVentanaAdHorarios(){
-        loginF.dispose();
-        final String[] horarios = mostrarHorarios();
+    public void abrirVentanaAdHorarios() throws Exception {
+        final String[] horarios = leerHorarios();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 adHorariosF = new AdmHorarios(horarios);
@@ -84,13 +84,21 @@ public class Con {
         });
     }
 
+    public void abrirVentanaAdministrador(){
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                administradorF = new Administrador();
+                administradorF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                administradorF.getContentPane().add(new Administrador().getter());
+                administradorF.pack();
+                administradorF.setVisible(true);
+            }
+        });
+    }
+
     public void abrirVentanaReservaciones(){
-        adHorariosF.dispose();
-        int noCiudades = faker.number().numberBetween(20, 30);
-        final String[] ciudades = new String[noCiudades];
-        for (int i = 0; i < noCiudades; i++){
-            ciudades[i] = faker.address().cityName();
-        }
+
+        final String[] ciudades = leerCiudades();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 reservacionesF = new Reservaciones(ciudades);
@@ -103,7 +111,6 @@ public class Con {
     }
 
     public void abrirVentanaCancelaciones(){
-        adHorariosF.dispose();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -131,59 +138,100 @@ public class Con {
                 confCancelacionesF.setVisible(true);
             }
         });
-        String reservacionString = "";
-        reservacionString += "Fecha: " + reservacion.getHorario().getFecha();
-        reservacionString += "Cuidad origen: " + reservacion.getHorario().getRuta().getCiudadOrigen();
-        reservacionString += "\nCuidad destino: " + reservacion.getHorario().getRuta().getCiudadDestino();
-        reservacionString += "\nSalida: " + reservacion.getHorario().getHoraSalida();
-        reservacionString += "\nLlegada: " + reservacion.getHorario().getHoraLlegada();
     }
-    public void abrirVentanaOpcionesReservaciones(String ciudadOrigen, String ciudadDestino, Date fecha){
+    public void abrirVentanaOpcionesReservaciones(String ciudadOrigen, String ciudadDestino, final Date fecha) throws Exception{
         reservacionesF.dispose();
-        int noOpciones = faker.number().numberBetween(5,10);
-        final Horario st[] = new Horario[noOpciones];
-
-        String placaAutobus = faker.idNumber().valid();
-        int noAsientos = faker.number().numberBetween(20, 50);
-        Autobus autobus = new Autobus("Mercedes Benz", faker.regexify("Modelo[a-z]*[0-9]*"), placaAutobus, noAsientos);
-
-        float duracion = (float) faker.number().randomDouble(2, 1, 30);
-
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String fechaS = dateFormat.format(fecha);
-        for (int i = 0; i < noOpciones; i++) {
-            Ruta ruta = new Ruta(ciudadOrigen, ciudadDestino);
-            DateFormat hourFormat = new SimpleDateFormat("hh:mm aa");
-            Calendar calendar = Calendar.getInstance();
-            calendar.add(Calendar.HOUR_OF_DAY, faker.number().numberBetween(0, 24));
-            calendar.add(Calendar.MINUTE, faker.number().numberBetween(0, 60));
-            Date date = calendar.getTime();
-            String horaSalida =hourFormat.format(date);
-
-            int minutos = (int)((duracion - (int) duracion) * 60);
-            calendar.add(Calendar.HOUR_OF_DAY, (int) duracion);
-            calendar.add(Calendar.MINUTE, minutos);
-            date = calendar.getTime();
-            String horaLlegada = hourFormat.format(date);
-
-            for (int j = 0; j < faker.number().numberBetween(2, 5); j++) {
-                ruta.addRutaIntermedia(faker.address().cityName());
+        final Horario st[] = new Horario[3];
+        LinkedList<Horario> horarios;
+        try
+        {
+            FileInputStream fis = new FileInputStream("horarios.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            horarios = (LinkedList<Horario>) ois.readObject();
+            Iterator it = horarios.iterator();
+            int i = 0;
+            while(it.hasNext()){
+                Horario horario = (Horario) it.next();
+                if (horario.getRuta().getCiudadOrigen().equals(ciudadOrigen) && horario.getRuta().getCiudadDestino().equals(ciudadDestino)){
+                    st[i++] = horario;
+                }
             }
+            ois.close();
 
-            Horario horario = new Horario(ruta, horaSalida, duracion, autobus, horaLlegada, fechaS);
-            horario.setDisponibilidad(noAsientos - faker.number().numberBetween(0, noAsientos));
-
-            st[i] = horario;
         }
-
-
+        catch (EOFException e) {
+            System.out.println("no hay nada we");
+        }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                opcionesReservacionesF = new OpcionesReservaciones(st);
+                opcionesReservacionesF = new OpcionesReservaciones(st, fecha);
                 opcionesReservacionesF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                opcionesReservacionesF.getContentPane().add(new OpcionesReservaciones(st).getter());
+                opcionesReservacionesF.getContentPane().add(new OpcionesReservaciones(st, fecha).getter());
                 opcionesReservacionesF.pack();
                 opcionesReservacionesF.setVisible(true);
+            }
+        });
+    }
+
+    public void abrirVentanaMostrarAutobuses(){
+        Autobus[] st = null;
+        LinkedList<Autobus> autobuses;
+        try
+        {
+            FileInputStream fis = new FileInputStream("autobuses.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            autobuses = (LinkedList<Autobus>) ois.readObject();
+            st = new Autobus[autobuses.size()];
+            Iterator it = autobuses.iterator();
+            for (int i = 0; i < autobuses.size(); i++) {
+                st[i] = (Autobus) it.next();
+            }
+            ois.close();
+
+        }
+        catch (EOFException e) {
+            System.out.println("no hay nada we");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        administradorF.dispose();
+        final Autobus[] finalSt = st;
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                mostrarAutobusesF = new MostrarAutobuses(finalSt);
+                mostrarAutobusesF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                mostrarAutobusesF.getContentPane().add(new MostrarAutobuses(finalSt).getter());
+                mostrarAutobusesF.pack();
+                mostrarAutobusesF.setVisible(true);
+            }
+        });
+    }
+
+    public void abrirVentanaAgregarAutobus(){
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                agregarAutobusF = new AgregarAutobus();
+                agregarAutobusF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                agregarAutobusF.getContentPane().add(new AgregarAutobus().getter());
+                agregarAutobusF.pack();
+                agregarAutobusF.setVisible(true);
+            }
+        });
+    }
+
+    public void abrirVentanaAgregarHorario(){
+        final String[] ciudades = leerCiudades();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                agregarHorarioF = new AgregarHorario(ciudades);
+                agregarHorarioF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                agregarHorarioF.getContentPane().add(new AgregarHorario(ciudades).getter());
+                agregarHorarioF.pack();
+                agregarHorarioF.setVisible(true);
             }
         });
     }
@@ -193,33 +241,83 @@ public class Con {
         RegistroCliente.registrar(user);
     }
 
+    public void terminarLogin() throws Exception {
+        loginF.dispose();
+        if (admin){
+            abrirVentanaAdministrador();
+        }else {
+            abrirVentanaAdHorarios();
+        }
+    }
+
     public void terminarRegistro(){
         resgitroF.dispose();
         abrirVentanaInicio();
     }
 
-    public void terminarCancelaciones(){
+    public void terminarAdHorarios(boolean res){
+        administradorF.dispose();
+        if (res){
+            abrirVentanaReservaciones();
+        }else{
+            abrirVentanaCancelaciones();
+        }
+    }
+
+    public void terminarAdministrador(int flag){
+        administradorF.dispose();
+        switch (flag){
+            case 0: //mostrar autobuses
+                abrirVentanaMostrarAutobuses();
+                break;
+            case 1: //agregar autobus
+                abrirVentanaAgregarAutobus();
+                break;
+            case 2: //agregar horaio
+                abrirVentanaAgregarHorario();
+                break;
+        }
+    }
+
+    public void terminarCancelaciones() throws Exception {
         cancelacionesF.dispose();
         abrirVentanaAdHorarios();
     }
 
-    public void terminarOpcionesReservaciones(){
+    public void terminarOpcionesReservaciones() throws Exception {
         opcionesReservacionesF.dispose();
         abrirVentanaAdHorarios();
     }
 
-    public void terminarConfCancelaciones(){
+    public void terminarConfCancelaciones() throws Exception {
         confCancelacionesF.dispose();
         abrirVentanaAdHorarios();
     }
 
+    public void terminarMostrarAutobuses(){
+        mostrarAutobusesF.dispose();
+        abrirVentanaAdministrador();
+    }
+
+    public void terminarAgregarAutobus(){
+        agregarAutobusF.dispose();
+        abrirVentanaAdministrador();
+    }
+
+    public void terminarAgregarHorario(){
+        agregarHorarioF.dispose();
+        abrirVentanaAdministrador();
+    }
+
     public void login(String correo, String contrasena) throws Exception {
         usuario = correo;
+        if (correo.equals("admin")){
+            admin = true;
+        }
         int flag = ModLogin.ingresar(correo, contrasena);
         switch (flag){
             case 0:
-                loginF.dispose();
-                abrirVentanaAdHorarios();
+                terminarLogin();
                 break;
             case 1:
                 JOptionPane.showMessageDialog(null, "La contraseña es incorrecta");
@@ -236,24 +334,61 @@ public class Con {
         //abrir reservaciones
     }
 
-    public boolean reservar(Horario horario) throws Exception {
-        Reservacion reservacion = new Reservacion(horario, faker.crypto().md5());
+    public boolean reservar(Horario horario, Date fecha) throws Exception {
+        Reservacion reservacion = new Reservacion(horario, faker.crypto().md5(), fecha);
         return ModReservacion.reservar(reservacion, usuario);
     }
 
     public void cancelar(String claveReservacion) throws Exception {
         ModCancelaciones.cancelar(claveReservacion, usuario);
     }
-    public String[] mostrarHorarios(){
-        String st[] = new String[faker.number().numberBetween(15, 20)];
-        st[0] = "Viajes más populares\n";
-        for (int i = 1; i < st.length; i++){
-            st[i] = generarHorario().toString() ;
+
+    public String[] leerHorarios() throws Exception{
+        String st[] = null;
+        LinkedList<Horario> horarios;
+        try
+        {
+            FileInputStream fis = new FileInputStream("horarios.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            horarios = (LinkedList<Horario>) ois.readObject();
+            Iterator it = horarios.iterator();
+            st = new String[horarios.size()+1];
+            int i = 1;
+            st[0] = "Horarios disponibles:";
+            while(it.hasNext()){
+                st[i++] = it.next().toString();
+            };
+            ois.close();
+
+        }
+        catch (EOFException e) {
+            System.out.println("no hay nada we");
         }
         return st;
         //mostrar horarios y opciones de reservacion y cancelación
     }
 
+    public String[] leerCiudades(){
+        String st[] = null;
+        try
+        {
+            FileInputStream fis = new FileInputStream("ciudades.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            st = (String[]) ois.readObject();
+            ois.close();
+
+        }
+        catch (EOFException e) {
+            System.out.println("no hay nada we");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return st;
+    }
 
     public String mostrarCancelaciones() throws Exception {
         try {
@@ -273,40 +408,69 @@ public class Con {
         return RegistroCliente.validarContrasena(usuario, contrasena);
     }
 
-    private Horario generarHorario(){
-        String ciudadOrigen = faker.address().cityName();
-        String ciudadDestino = faker.address().cityName();
-        Ruta ruta = new Ruta(ciudadOrigen, ciudadDestino);
+    public void agregarAutobus(Autobus autobus){
 
-        String placaAutobus = faker.idNumber().valid();
-        int noAsientos = faker.number().numberBetween(20, 50);
-        Autobus autobus = new Autobus("Mercedes Benz", faker.regexify("Modelo[a-z]*[0-9]*"), placaAutobus, noAsientos);
+        LinkedList<Autobus> autobuses;
+        try
+        {
+            FileInputStream fis = new FileInputStream("autobuses.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            autobuses = (LinkedList<Autobus>) ois.readObject();
+            autobuses.add(autobus);
+            ois.close();
 
-        DateFormat hourFormat = new SimpleDateFormat("hh:mm aa");
+            FileOutputStream fs = new FileOutputStream("autobuses.txt", false);
+            ObjectOutputStream ob = new ObjectOutputStream(fs);
+            ob.writeObject(autobuses);
+            ob.close();
+        }
+        catch (EOFException e) {
+            System.out.println("no hay nada we");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void agregarHorario(String origen, String destino, Date horaSalida){
+
+        float duracion = (float) faker.number().randomDouble(2, 1, 30);
+
+        int minutos = (int)((duracion - (int) duracion)*60);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm");
+        String horaS = simpleDateFormat.format(horaSalida);
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.HOUR_OF_DAY, faker.number().numberBetween(0, 24));
         calendar.add(Calendar.MINUTE, faker.number().numberBetween(0, 60));
-        Date date = calendar.getTime();
-        String horaSalida =hourFormat.format(date);
+        horaSalida = calendar.getTime();
+        String horaL = simpleDateFormat.format(horaSalida);
 
-        float duracion = (float) faker.number().randomDouble(2, 1, 40);
+        Horario horario = new Horario(new Ruta(origen, destino), horaS, duracion, horaL);
+        LinkedList<Horario> horarios;
+        try
+        {
+            FileInputStream fis = new FileInputStream("horarios.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            horarios = (LinkedList<Horario>) ois.readObject();
+            horarios.add(horario);
+            ois.close();
 
-        int minutos = (int)((duracion - (int) duracion) * 60);
-        calendar.add(Calendar.HOUR_OF_DAY, (int) duracion);
-        calendar.add(Calendar.MINUTE, minutos);
-        date = calendar.getTime();
-        String horaLlegada = hourFormat.format(date);
-
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        calendar.add(Calendar.DAY_OF_YEAR, faker.number().numberBetween(0, 60));
-        date = calendar.getTime();
-        String fecha = dateFormat.format(date);
-
-        Horario horario = new Horario(ruta, horaSalida, duracion, autobus, horaLlegada, fecha);
-        horario.setDisponibilidad(noAsientos - faker.number().numberBetween(0, noAsientos));
-        return horario;
+            FileOutputStream fs = new FileOutputStream("horarios.txt", false);
+            ObjectOutputStream ob = new ObjectOutputStream(fs);
+            ob.writeObject(horario);
+            ob.close();
+        }
+        catch (EOFException e) {
+            System.out.println("no hay nada we");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
-
-
-
 }

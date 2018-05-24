@@ -48,7 +48,11 @@ public class Cancelaciones extends JFrame{
         });
         btnRegresar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                con.terminarCancelaciones();
+                try {
+                    con.terminarCancelaciones();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
             }
         });
         txfClave.addKeyListener(new KeyAdapter() {

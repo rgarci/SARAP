@@ -20,12 +20,16 @@ public class AdmHorarios extends JFrame{
         listHorarios.setListData(horarios);
         btnReservar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                con.abrirVentanaReservaciones();
+                try {
+                    con.terminarAdHorarios(true);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
             }
         });
         btnCancelar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                con.abrirVentanaCancelaciones();
+                con.terminarAdHorarios(false);
             }
         });
     }

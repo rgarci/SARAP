@@ -2,54 +2,90 @@ package Mod;
 
 import com.github.javafaker.Faker;
 
-import java.io.File;
+import java.io.*;
+
 import Vis.*;
 import Con.*;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        /*Faker faker = new Faker();
-        File file = new File("reservaciones.txt");
-        file.delete();
-        file.createNewFile();
-        Usuario usuario = new Usuario("Rosi", "chuchis", "rgarci@gmails.com");
-        DateFormat dateFormat = new SimpleDateFormat("hh:mm aa");
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.HOUR_OF_DAY, faker.number().numberBetween(0, 24));
-        calendar.add(Calendar.MINUTE, faker.number().numberBetween(0, 60));
-        Date date = calendar.getTime();
-        String hora =dateFormat.format(date);
-        float duracion = (float) 14.5;
-        int minutos = (int)((duracion - (int) duracion)*60);
-        calendar.add(Calendar.HOUR_OF_DAY, (int) duracion);
-        calendar.add(Calendar.MINUTE, minutos);
-        date = calendar.getTime();
-        String horaLlegada = dateFormat.format(date);
-
-        Horario horario = new Horario(new Ruta("Mérida", "Cancún"), hora, duracion, new Autobus("Mazda", "Mazda3", "123yuc", 35), horaLlegada, "10/04/2018");
-
-        String claveReservacion = String.valueOf(faker.number().digits(7));
-        Reservacion reservacion  new Reservacion(horario, claveReservacion);
-
-        ModReservacion.reservar(reservacion, usuario);
-        ModReservacion.consultarReservacion(usuario);
-        ModCancelaciones.cancelar(claveReservacion, usuario);
-        ModReservacion.consultarReservacion(usuario);
-*/
-        /*File file = new File("usuarios.txt");
-        file.delete();
-        file.createNewFile();
-        Usuario usuario = new Usuario("Rosi", "chuchis", "rgarci@gmails.com");
-        RegistroCliente.registrar(usuario);
-        RegistroCliente.registrar(usuario);
-        ModLogin.ingresar("rgarci@gmails.com", "chuchis");
-        ModLogin.ingresar("rgarci@gmail.com", "chuchis");*/
-
         Con con = Con.getSingletonInstance();
+        File filec = new File("ciudades.txt");
+        filec.delete();
+        filec.createNewFile();
+        File file = new File("horarios.txt");
+        file.delete();
+        file.createNewFile();
+        File filea = new File("autobuses.txt");
+        filea.delete();
+        filea.createNewFile();
+        Faker faker = new Faker(new Locale("es", "MX"));
+
+        String origen[] = new String[20];
+        String destino[] = new String[20];
+        LinkedList<Horario> hs = new LinkedList<Horario>();
+        for (int i = 0; i < 20; i++) {
+            origen[i] = faker.address().cityName();
+            destino[i] = origen[i];
+        }
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 20; j++) {
+                for (int k = 0; k < 20; k++) {
+                    if (j!=k) {
+                        hs.add(con.generarHorario(origen[j], destino[k]));
+                    }
+                }
+            }
+        }
+        FileOutputStream fsc = new FileOutputStream(filec, false);
+        ObjectOutputStream obc = new ObjectOutputStream(fsc);
+        obc.writeObject(origen);
+        obc.close();
+
+        FileOutputStream fs = new FileOutputStream(file, false);
+        ObjectOutputStream ob = new ObjectOutputStream(fs);
+        ob.writeObject(hs);
+        ob.close();
+        LinkedList<Autobus> autobuses = new LinkedList<Autobus>();
+        faker = new Faker();
+        for (int i = 0; i < 100; i++) {
+
+            Autobus autobus = new Autobus(faker.name().lastName(), faker.number().digits(3), faker.number().digits(5), 50);
+            autobuses.add(autobus);
+        }
+
+        FileOutputStream fsa = new FileOutputStream(filea, false);
+        ObjectOutputStream oba = new ObjectOutputStream(fsa);
+        oba.writeObject(autobuses);
+        oba.close();
+        try
+        {
+            FileInputStream fisc = new FileInputStream(filec);
+            ObjectInputStream oisc = new ObjectInputStream(fisc);
+            origen = (String[]) oisc.readObject();
+            System.out.println(origen.length);
+            oisc.close();
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            hs = (LinkedList<Horario>) ois.readObject();
+            System.out.println(hs.size());
+            ois.close();
+            FileInputStream fisa = new FileInputStream(filea);
+            ObjectInputStream oisa = new ObjectInputStream(fisa);
+            autobuses = (LinkedList<Autobus>) oisa.readObject();
+            System.out.println(autobuses.size());
+            System.out.println(autobuses);
+            oisa.close();
+
+        }
+        catch (EOFException e) {
+            System.out.println("no hay nada we");
+        }
+
         con.iniciar();
     }
 }

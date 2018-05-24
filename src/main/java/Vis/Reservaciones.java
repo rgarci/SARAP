@@ -33,18 +33,26 @@ public class Reservaciones extends JFrame {
                     String origen = String.valueOf(cbOrigen.getSelectedItem());
                     String destino = String.valueOf(cbDestino.getSelectedItem());
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                    Date fecha = null;
+                    Date fecha;
                     fecha = simpleDateFormat.parse(txfFecha.getText());
                     Calendar calendar = Calendar.getInstance();
+                    calendar.add(Calendar.DAY_OF_WEEK, -1);
                     Date today = calendar.getTime();
                     if (fecha.before(today)){
                         throw new RuntimeException();
                     }
                     con.abrirVentanaOpcionesReservaciones(origen, destino, fecha);
                 }catch(ParseException pe){
-                    pe.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "La fecha no tiene el formato correcto");
                 }catch(RuntimeException rt){
                     JOptionPane.showMessageDialog(null, "La fecha es incorrecta o anterior a la actual");
+                    try {
+                        con.abrirVentanaReservaciones();
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
+                } catch (Exception e1) {
+                    e1.printStackTrace();
                 }
 
             }
