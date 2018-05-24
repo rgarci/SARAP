@@ -42,7 +42,7 @@ public class Con {
         //fileUsuarios.delete();
         fileUsuarios.createNewFile();
         File fileReservaciones = new File("reservaciones.txt");
-        fileReservaciones.delete();
+        //fileReservaciones.delete();
         fileReservaciones.createNewFile();
         abrirVentanaInicio();
     }
@@ -161,7 +161,7 @@ public class Con {
 
         }
         catch (EOFException e) {
-            System.out.println("no hay nada we");
+            System.out.println("archivo vacío");
         }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -191,7 +191,7 @@ public class Con {
 
         }
         catch (EOFException e) {
-            System.out.println("no hay nada we");
+            System.out.println("archivo vacío");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -333,7 +333,6 @@ public class Con {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
                 break;
         }
-        System.out.println(usuario);
         //cerrar login
         //abrir reservaciones
     }
@@ -366,7 +365,7 @@ public class Con {
 
         }
         catch (EOFException e) {
-            System.out.println("no hay nada we");
+            System.out.println("archivo vacío");
         }
         return st;
         //mostrar horarios y opciones de reservacion y cancelación
@@ -383,7 +382,7 @@ public class Con {
 
         }
         catch (EOFException e) {
-            System.out.println("no hay nada we");
+            System.out.println("archivo vacío");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -429,7 +428,7 @@ public class Con {
             ob.close();
         }
         catch (EOFException e) {
-            System.out.println("no hay nada we");
+            System.out.println("archivo vacío");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -467,7 +466,7 @@ public class Con {
             ob.close();
         }
         catch (EOFException e) {
-            System.out.println("no hay nada we");
+            System.out.println("archivo vacío");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
