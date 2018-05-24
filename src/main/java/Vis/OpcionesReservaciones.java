@@ -23,6 +23,7 @@ public class OpcionesReservaciones extends JFrame{
                 if (listOpciones.getSelectedValue()!=null){
                     try {
                         Horario horario = (Horario) listOpciones.getSelectedValue();
+                        System.out.println(horario);
                         String mensaje = "Se reservará el siguiente viaje:\n";
                         mensaje += horario;
                         mensaje += "\nDuración: " + horario.getDuracion() + " horas";

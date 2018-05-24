@@ -6,6 +6,7 @@ import com.github.javafaker.Faker;
 
 import javax.swing.*;
 import java.io.*;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -256,7 +257,7 @@ public class Con {
     }
 
     public void terminarAdHorarios(boolean res){
-        administradorF.dispose();
+        adHorariosF.dispose();
         if (res){
             abrirVentanaReservaciones();
         }else{
@@ -264,7 +265,7 @@ public class Con {
         }
     }
 
-    public void terminarAdministrador(int flag){
+    public void terminarAdministrador(int flag) throws Exception {
         administradorF.dispose();
         switch (flag){
             case 0: //mostrar autobuses
@@ -275,6 +276,9 @@ public class Con {
                 break;
             case 2: //agregar horaio
                 abrirVentanaAgregarHorario();
+                break;
+            case 3: //usuario
+                abrirVentanaAdHorarios();
                 break;
         }
     }
@@ -439,7 +443,6 @@ public class Con {
 
         float duracion = (float) faker.number().randomDouble(2, 1, 30);
 
-        int minutos = (int)((duracion - (int) duracion)*60);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm");
         String horaS = simpleDateFormat.format(horaSalida);
         Calendar calendar = Calendar.getInstance();
@@ -460,7 +463,7 @@ public class Con {
 
             FileOutputStream fs = new FileOutputStream("horarios.txt", false);
             ObjectOutputStream ob = new ObjectOutputStream(fs);
-            ob.writeObject(horario);
+            ob.writeObject(horarios);
             ob.close();
         }
         catch (EOFException e) {
@@ -472,5 +475,34 @@ public class Con {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public Horario generarHorario(String ciudadOrigen, String ciudadDestino){
+        Ruta ruta = new Ruta(ciudadOrigen, ciudadDestino);
+
+        for (int i = 0; i < faker.number().numberBetween(1, 5); i++){
+            ruta.addRutaIntermedia(faker.address().cityName());
+        }
+        String placaAutobus = faker.idNumber().valid();
+        int noAsientos = faker.number().numberBetween(20, 50);
+
+        DateFormat hourFormat = new SimpleDateFormat("hh:mm aa");
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.HOUR_OF_DAY, faker.number().numberBetween(0, 24));
+        calendar.add(Calendar.MINUTE, faker.number().numberBetween(0, 60));
+        Date date = calendar.getTime();
+        String horaSalida =hourFormat.format(date);
+
+        float duracion = (float) faker.number().randomDouble(2, 1, 40);
+
+        int minutos = (int)((duracion - (int) duracion) * 60);
+        calendar.add(Calendar.HOUR_OF_DAY, (int) duracion);
+        calendar.add(Calendar.MINUTE, minutos);
+        date = calendar.getTime();
+        String horaLlegada = hourFormat.format(date);
+
+        Horario horario = new Horario(ruta, horaSalida, duracion, horaLlegada);
+        horario.setDisponibilidad(noAsientos - faker.number().numberBetween(0, noAsientos));
+        return horario;
     }
 }

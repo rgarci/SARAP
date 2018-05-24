@@ -76,7 +76,7 @@ public class ModReservacion {
                 LinkedList<Reservacion> reservacions =reservaciones.get(correo);
                 if (reservacions.size()>0){
                     for (int i = 0; i < reservacions.size(); i++){
-                        st += "Destino: " + reservacions.get(i).getHorario().getRuta().getCiudadDestino() + "\nHorario salida: " + reservacions.get(i).getHorario().getHoraSalida() + "\nHora llegada: " + reservacions.get(i).getHorario().getHoraLlegada() + "\nClave de reservación: " + reservacions.get(i).getClaveReservacion() + "\n\n";
+                        st += "Destino: " + reservacions.get(i).getHorario().getRuta().getCiudadDestino() + "\n Origen: " + reservacions.get(i).getHorario().getRuta().getCiudadOrigen() + "\nHorario salida: " + reservacions.get(i).getHorario().getHoraSalida() + "\nHora llegada: " + reservacions.get(i).getHorario().getHoraLlegada() + "\nClave de reservación: " + reservacions.get(i).getClaveReservacion() + "\n\n";
                     }
                 }else{
                     st += "El usuario no tiene ninguna reservación";

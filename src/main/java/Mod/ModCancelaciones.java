@@ -37,15 +37,10 @@ public class ModCancelaciones {
                     ObjectOutputStream ob = new ObjectOutputStream(fs);
                     ob.writeObject(reservaciones);
                     ob.close();
-                    System.out.println("Se eliminó la reservación");
                     return true;
 
-                }else{
-                    System.out.println("El usuario no tiene esa reservación");
                 }
 
-            }else{
-                System.out.println("no existen reservaciones a ese nombre");
             }
 
         }catch(EOFException e){

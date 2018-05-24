@@ -14,7 +14,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws Exception {
         Con con = Con.getSingletonInstance();
-        File filec = new File("ciudades.txt");
+        /*File filec = new File("ciudades.txt");
         filec.delete();
         filec.createNewFile();
         File file = new File("horarios.txt");
@@ -84,7 +84,7 @@ public class Main {
         }
         catch (EOFException e) {
             System.out.println("no hay nada we");
-        }
+        }*/
 
         con.iniciar();
     }

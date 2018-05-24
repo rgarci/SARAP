@@ -22,9 +22,6 @@ public class RegistroCliente {
         }
         if (usuarios.get(newUsuario.getCorreo())==null) {
             usuarios.put(newUsuario.getCorreo(), newUsuario);
-            System.out.println("el usuario no existía");
-        }else{
-            System.out.println("el usuario existía");
         }
 
         FileOutputStream fs = new FileOutputStream(file, false);
