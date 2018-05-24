@@ -2,101 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c124d45-2040-4d44-b5f6-b805a7a1c159" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__asm_asm_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__asm_asm_commons_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__asm_asm_tree_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_intellij_forms_rt_7_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jgoodies_forms_1_1_preview.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jdom_jdom_1_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SARAP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SARAP.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vis/AdmHorarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vis/AdmHorarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vis/Administrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vis/Administrador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vis/AgregarAutobus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vis/AgregarAutobus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vis/AgregarHorario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vis/AgregarHorario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vis/Cancelaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vis/Cancelaciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vis/ConfirmCancelaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vis/ConfirmCancelaciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vis/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vis/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vis/MostrarAutobuses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vis/MostrarAutobuses.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vis/OpcionesReservaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vis/OpcionesReservaciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vis/Registro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vis/Registro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vis/Reservaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vis/Reservaciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Con/Con$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Con/Con$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Con/Con$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Con/Con$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Con/Con$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Con/Con$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Con/Con$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Con/Con$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Con/Con$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Con/Con$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Con/Con$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Con/Con$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Con/Con$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Con/Con$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Con/Con$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Con/Con$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Con/Con$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Con/Con$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Con/Con$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Con/Con$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Con/Con$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Con/Con$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Con/Con.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Con/Con.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mod/Autobus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mod/Autobus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mod/Chofer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mod/Chofer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mod/Horario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mod/Horario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mod/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mod/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mod/ModCancelaciones.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mod/ModCancelaciones.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mod/ModLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mod/ModLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mod/ModReservacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mod/ModReservacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mod/RegistroCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mod/RegistroCliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mod/Reservacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mod/Reservacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mod/Ruta.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mod/Ruta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mod/ShellSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mod/ShellSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mod/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mod/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/AdmHorarios$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/AdmHorarios$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/AdmHorarios$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/AdmHorarios$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/AdmHorarios.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/AdmHorarios.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Administrador$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Administrador$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Administrador$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Administrador$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Administrador$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Administrador$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Administrador$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Administrador$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Administrador.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Administrador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/AgregarAutobus$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/AgregarAutobus$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/AgregarAutobus$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/AgregarAutobus$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/AgregarAutobus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/AgregarAutobus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/AgregarHorario$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/AgregarHorario$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/AgregarHorario$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/AgregarHorario$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/AgregarHorario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/AgregarHorario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Cancelaciones$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Cancelaciones$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Cancelaciones$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Cancelaciones$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Cancelaciones$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Cancelaciones$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Cancelaciones.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Cancelaciones.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/ConfirmCancelaciones$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/ConfirmCancelaciones$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/ConfirmCancelaciones.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/ConfirmCancelaciones.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Login$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Login$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Login$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Login$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Login$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Login$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/MostrarAutobuses$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/MostrarAutobuses$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/MostrarAutobuses$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/MostrarAutobuses$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/MostrarAutobuses$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/MostrarAutobuses$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/MostrarAutobuses$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/MostrarAutobuses$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/MostrarAutobuses$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/MostrarAutobuses$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/MostrarAutobuses$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/MostrarAutobuses$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/MostrarAutobuses.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/MostrarAutobuses.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/OpcionesReservaciones$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/OpcionesReservaciones$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/OpcionesReservaciones.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/OpcionesReservaciones.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Registro$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Registro$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Registro.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Registro.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Reservaciones$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Reservaciones$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vis/Reservaciones.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vis/Reservaciones.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -121,8 +27,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+            <state relative-caret-position="551">
+              <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="68" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -317,6 +223,9 @@
     <property name="settings.editor.selected.configurable" value="project.propGUI" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/target" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/main/java/Mod" />
@@ -441,15 +350,16 @@
       <workItem from="1527036331900" duration="14343000" />
       <workItem from="1527120549290" duration="9842000" />
       <workItem from="1527197596274" duration="60000" />
-      <workItem from="1527201816978" duration="2203000" />
+      <workItem from="1527201816978" duration="2479000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74467000" />
+    <option name="totallyTimeSpent" value="74743000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="-4" width="1319" height="772" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="bottom" id="TODO" order="11" />
@@ -462,7 +372,7 @@
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="5" weight="0.32761312" />
       <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.19812793" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.6068643" />
       <window_info id="Capture Tool" order="0" />
       <window_info id="Designer" order="1" />
       <window_info content_ui="combo" id="Project" order="3" sideWeight="0.4984985" visible="true" weight="0.21838178" />
@@ -796,8 +706,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+        <state relative-caret-position="551">
+          <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="68" selection-end-column="21" />
         </state>
       </provider>
     </entry>
