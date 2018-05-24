@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c124d45-2040-4d44-b5f6-b805a7a1c159" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autobuses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/autobuses.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ciudades.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ciudades.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/horarios.txt" beforeDir="false" afterPath="$PROJECT_DIR$/horarios.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Con/Con.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Con/Con.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vis/OpcionesReservaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vis/OpcionesReservaciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Con/Con.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Con/Con.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mod/ModCancelaciones.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mod/ModCancelaciones.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mod/RegistroCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mod/RegistroCliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios.txt" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios.txt" afterDir="false" />
-    </list>
+    <list default="true" id="8c124d45-2040-4d44-b5f6-b805a7a1c159" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +16,8 @@
       <file leaf-file-name="Con.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Con/Con.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="384" column="45" selection-start-line="384" selection-start-column="45" selection-end-line="384" selection-end-column="45" />
+            <state relative-caret-position="6460">
+              <caret line="370" column="21" selection-start-line="370" selection-start-column="21" selection-end-line="370" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -58,7 +47,7 @@
     <findStrings>
       <find>SoyUnico</find>
       <find>auto</find>
-      <find />
+      <find>admin =</find>
       <find>mostrarH</find>
       <find>terminarad</find>
       <find>print</find>
@@ -140,7 +129,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="47" />
     <option name="y" value="24" />
     <option name="width" value="660" />
@@ -214,15 +203,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Vis" type="462c0819:PsiDirectoryNode" />
               <item name="AdmHorarios" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="PFinalED" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PFinalED" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Vis" type="462c0819:PsiDirectoryNode" />
-              <item name="Administrador" type="e9f4de52:FormNode" />
             </path>
             <path>
               <item name="PFinalED" type="b2602c69:ProjectViewProjectNode" />
@@ -379,7 +359,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70508000" />
+    <option name="totallyTimeSpent" value="70818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="-4" width="1319" height="772" extended-state="6" />
@@ -396,10 +376,10 @@
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Run" order="5" weight="0.32761312" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.32917318" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.9329173" />
       <window_info id="Capture Tool" order="0" />
       <window_info id="Designer" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.4984985" visible="true" weight="0.21838178" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.4984985" visible="true" weight="0.21838178" />
       <window_info anchor="right" id="Database" order="8" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.3281493" />
       <window_info id="Structure" order="5" sideWeight="0.5015015" side_tool="true" weight="0.24943139" />
@@ -771,8 +751,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Con/Con.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="384" column="45" selection-start-line="384" selection-start-column="45" selection-end-line="384" selection-end-column="45" />
+        <state relative-caret-position="6460">
+          <caret line="370" column="21" selection-start-line="370" selection-start-column="21" selection-end-line="370" selection-end-column="21" />
         </state>
       </provider>
     </entry>
