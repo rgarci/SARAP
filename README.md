@@ -16,4 +16,4 @@ Funcionalidades:
 - Consultar autobuses
 - Agregar autobuses
 
-El proyecto fue desarrollado en IntelliJ usando mvn como manejador de dependencias
+El proyecto fue desarrollado en IntelliJ usando Maven como manejador de dependencias
