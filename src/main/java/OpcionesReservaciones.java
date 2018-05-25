@@ -33,7 +33,7 @@ public class OpcionesReservaciones extends JFrame {
                         }
                         JOptionPane.showMessageDialog(null, mensaje);
                         if (redondo) {
-                            Horario horarioR = horario;
+                            Horario horarioR = new Horario(horario.getRuta(), horario.getHoraSalida(), horario.getDuracion(), horario.getHoraLlegada());
                             horarioR.setRuta(new Ruta(horario.getRuta().getCiudadDestino(), horario.getRuta().getCiudadOrigen()));
                             if (con.reservar(horario, fecha)) {
                                 if (con.reservar(horarioR, fechaL)) {
