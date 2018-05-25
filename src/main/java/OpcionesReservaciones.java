@@ -15,7 +15,7 @@ public class OpcionesReservaciones extends JFrame {
     private JPanel panel1;
     private Con con;
 
-    public OpcionesReservaciones(Horario[] horarios, final Date fecha, boolean redondo) {
+    public OpcionesReservaciones(Horario[] horarios, final Date fecha, boolean redondo, Date fechaL) {
         con = Con.getSingletonInstance();
         this.setLocationRelativeTo(null);
         listOpciones.setListData(horarios);
@@ -32,11 +32,26 @@ public class OpcionesReservaciones extends JFrame {
                             mensaje += horario.getRuta().getRutasIntermedias().get(i) + "\n";
                         }
                         JOptionPane.showMessageDialog(null, mensaje);
-                        if (con.reservar(horario, fecha)) {
-                            JOptionPane.showMessageDialog(null, "El registro se realizó correctamente");
-                            con.terminarOpcionesReservaciones(redondo);
+                        if (redondo) {
+                            Horario horarioR = horario;
+                            horarioR.setRuta(new Ruta(horario.getRuta().getCiudadDestino(), horario.getRuta().getCiudadOrigen()));
+                            if (con.reservar(horario, fecha)) {
+                                if (con.reservar(horarioR, fechaL)) {
+                                    JOptionPane.showMessageDialog(null, "El registro se realizó correctamente");
+                                    con.terminarOpcionesReservaciones();
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "Hubo un error al hacer la reservación");
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Hubo un error al hacer la reservación");
+                            }
                         } else {
-                            JOptionPane.showMessageDialog(null, "Hubo un error al hacer la reservación");
+                            if (con.reservar(horario, fecha)) {
+                                JOptionPane.showMessageDialog(null, "El registro se realizó correctamente");
+                                con.terminarOpcionesReservaciones();
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Hubo un error al hacer la reservación");
+                            }
                         }
                     } catch (Exception e1) {
                         e1.printStackTrace();

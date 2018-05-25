@@ -225,7 +225,7 @@ public class Con {
      * @param ciudadDestino ciudad destino de la ruta elegida
      * @param fecha fecha del viaje
      */
-    public void abrirVentanaOpcionesReservaciones(String ciudadOrigen, String ciudadDestino, final Date fecha, boolean redondo) throws Exception{
+    public void abrirVentanaOpcionesReservaciones(String ciudadOrigen, String ciudadDestino, final Date fecha, boolean redondo, Date fechaS) throws Exception{
         reservacionesF.dispose();
         final Horario st[] = new Horario[3];
         LinkedList<Horario> horarios;
@@ -250,9 +250,9 @@ public class Con {
         }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                opcionesReservacionesF = new OpcionesReservaciones(st, fecha, redondo);
+                opcionesReservacionesF = new OpcionesReservaciones(st, fecha, redondo, fechaS);
                 opcionesReservacionesF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                opcionesReservacionesF.getContentPane().add(new OpcionesReservaciones(st, fecha, redondo).getter());
+                opcionesReservacionesF.getContentPane().add(new OpcionesReservaciones(st, fecha, redondo, fechaS).getter());
                 opcionesReservacionesF.pack();
                 opcionesReservacionesF.setVisible(true);
             }
@@ -408,14 +408,10 @@ public class Con {
      * cierra la ventana Opciones reservaciones y abre la ventana adHorarios
      * @throws Exception
      */
-    public void terminarOpcionesReservaciones(boolean redondo) throws Exception {
+    public void terminarOpcionesReservaciones() throws Exception {
+        opcionesReservacionesF.dispose();
+        abrirVentanaAdHorarios();
 
-        if (!redondo) {
-            opcionesReservacionesF.dispose();
-            abrirVentanaAdHorarios();
-        }else{
-            opcionesReservacionesF.dispose();
-        }
     }
     /**
      * cierra la ventana Confirmar cancelaciones y abre la ventana adHorarios
@@ -513,24 +509,19 @@ public class Con {
     public String[] leerHorarios() throws Exception{
         String st[] = null;
         LinkedList<Horario> horarios;
-        try
-        {
-            FileInputStream fis = new FileInputStream("horarios.txt");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            horarios = (LinkedList<Horario>) ois.readObject();
-            Iterator it = horarios.iterator();
-            st = new String[horarios.size()+1];
-            int i = 1;
-            st[0] = "Horarios disponibles:";
-            while(it.hasNext()){
-                st[i++] = it.next().toString();
-            };
-            ois.close();
 
+        FileInputStream fis = new FileInputStream("horarios.txt");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        horarios = (LinkedList<Horario>) ois.readObject();
+        Iterator it = horarios.iterator();
+        st = new String[horarios.size()+1];
+        int i = 1;
+        st[0] = "Horarios disponibles:";
+        while(it.hasNext()) {
+            st[i++] = it.next().toString();
         }
-        catch (EOFException e) {
-            System.out.println("archivo vacío");
-        }
+        ois.close();
+
         return st;
     }
 

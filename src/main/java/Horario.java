@@ -82,6 +82,14 @@ public class Horario implements Serializable{
     }
 
     /**
+     * setter ruta
+     * @param ruta  nueva ruta
+     */
+    public void setRuta(Ruta ruta) {
+        this.ruta = ruta;
+    }
+
+    /**
      * toString
      * @return versión de
      */

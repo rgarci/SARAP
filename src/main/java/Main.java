@@ -78,7 +78,6 @@ public class Main {
             ObjectInputStream oisa = new ObjectInputStream(fisa);
             autobuses = (LinkedList<Autobus>) oisa.readObject();
             System.out.println(autobuses.size());
-            System.out.println(autobuses);
             oisa.close();
 
         }
@@ -109,8 +108,8 @@ public class Main {
         ObjectInputStream oiscc = new ObjectInputStream(fiscc);
         chofers = (LinkedList<Chofer>) oiscc.readObject();
         System.out.println(chofers.size());
-        oiscc.close();
-*/
+        oiscc.close();*/
+
         con.iniciar();
     }
 }
