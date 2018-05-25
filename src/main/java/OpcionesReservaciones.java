@@ -13,6 +13,7 @@ public class OpcionesReservaciones extends JFrame {
     private JButton btnSiguiente;
     private JList listOpciones;
     private JPanel panel1;
+    private JButton btnRegresar;
     private Con con;
 
     public OpcionesReservaciones(Horario[] horarios, final Date fecha, boolean redondo, Date fechaL) {
@@ -56,6 +57,16 @@ public class OpcionesReservaciones extends JFrame {
                     } catch (Exception e1) {
                         e1.printStackTrace();
                     }
+                }
+            }
+        });
+        btnRegresar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    con.terminarOpcionesReservaciones();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
                 }
             }
         });
